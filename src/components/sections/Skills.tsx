@@ -12,7 +12,7 @@ export default function Skills() {
       id="skills"
       title="Skills"
       subtitle="What I work with"
-      className="bg-surface/30"
+      className="bg-surface/50"
     >
       <div className="grid gap-6 md:grid-cols-2">
         {skillCategories.map((category, catIndex) => (

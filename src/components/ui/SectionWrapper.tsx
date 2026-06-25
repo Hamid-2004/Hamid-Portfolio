@@ -12,6 +12,22 @@ interface SectionWrapperProps {
   subtitle?: string;
 }
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 export default function SectionWrapper({
   id,
   children,
@@ -20,18 +36,18 @@ export default function SectionWrapper({
   subtitle,
 }: SectionWrapperProps) {
   return (
-    <section id={id} className={cn("relative py-20 md:py-28", className)}>
+    <section id={id} className={cn("relative z-10 py-20 md:py-28", className)}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {(title || subtitle) && (
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="mb-12 text-center md:mb-16"
           >
             {subtitle && (
-              <p className="mb-2 text-sm font-medium uppercase tracking-widest text-accent">
+              <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-text-muted">
                 {subtitle}
               </p>
             )}
@@ -40,10 +56,23 @@ export default function SectionWrapper({
                 {title}
               </h2>
             )}
-            <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-primary via-secondary to-accent" />
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: 48 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mx-auto mt-5 h-px bg-white/30"
+            />
           </motion.div>
         )}
-        {children}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <motion.div variants={itemVariants}>{children}</motion.div>
+        </motion.div>
       </div>
     </section>
   );

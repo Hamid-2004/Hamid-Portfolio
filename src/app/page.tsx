@@ -11,13 +11,18 @@ import Services from "@/components/sections/Services";
 import Education from "@/components/sections/Education";
 import Experience from "@/components/sections/Experience";
 import Contact from "@/components/sections/Contact";
+import GlobalBackground from "@/components/ui/GlobalBackground";
+import PremiumCursor from "@/components/ui/PremiumCursor";
+import { CursorProvider } from "@/components/providers/CursorProvider";
 
 export default function Home() {
   return (
-    <>
+    <CursorProvider>
+      <GlobalBackground />
+      <PremiumCursor />
       <LoadingScreen />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Skills />
@@ -30,6 +35,6 @@ export default function Home() {
       </main>
       <Footer />
       <BackToTop />
-    </>
+    </CursorProvider>
   );
 }

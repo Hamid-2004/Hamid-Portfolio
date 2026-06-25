@@ -3,29 +3,40 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Mail, FolderOpen } from "lucide-react";
 import { heroContent, personalInfo, stats } from "@/lib/data";
-import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import TypingEffect from "@/components/ui/TypingEffect";
 import Button from "@/components/ui/Button";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { scrollToSection } from "@/lib/utils";
 
+const headlineWords = "Building Modern Web Experiences with AI, Design & Development".split(
+  " ",
+);
+
+const wordVariants = {
+  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, delay: 2.6 + i * 0.06, ease: [0.22, 1, 0.36, 1] as const },
+  }),
+};
+
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20"
+      className="relative z-10 flex min-h-screen items-center justify-center overflow-hidden pt-20"
     >
-      <AnimatedBackground />
-
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 2.4 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-text-muted backdrop-blur-sm"
+            className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-text-muted backdrop-blur-sm"
           >
-            <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
             Available for opportunities
           </motion.div>
 
@@ -33,27 +44,32 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 2.5 }}
-            className="mb-4 text-lg text-text-muted md:text-xl"
+            className="mb-6 text-lg text-text-muted md:text-xl"
           >
             Hi, I&apos;m{" "}
             <span className="font-semibold text-white">{personalInfo.name}</span>
           </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 2.6 }}
-            className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl"
-          >
-            Building Modern Web Experiences with{" "}
-            <span className="gradient-text">AI, Design & Development</span>
-          </motion.h1>
+          <h1 className="max-w-5xl text-4xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
+            {headlineWords.map((word, i) => (
+              <motion.span
+                key={i}
+                custom={i}
+                initial="hidden"
+                animate="visible"
+                variants={wordVariants}
+                className="mr-[0.25em] inline-block text-white last:mr-0"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </h1>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.8 }}
-            className="mt-4 text-xl font-medium text-accent md:text-2xl"
+            transition={{ delay: 3.2 }}
+            className="mt-6 text-xl font-light text-text-muted md:text-2xl"
           >
             <TypingEffect texts={heroContent.typingTexts} />
           </motion.div>
@@ -61,8 +77,8 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 2.9 }}
-            className="mt-6 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg"
+            transition={{ duration: 0.6, delay: 3.4 }}
+            className="mt-8 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg"
           >
             {heroContent.subheadline}
           </motion.p>
@@ -70,8 +86,8 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 3.0 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-4"
+            transition={{ duration: 0.6, delay: 3.6 }}
+            className="mt-10 flex flex-wrap items-center justify-center gap-4"
           >
             <Button onClick={() => scrollToSection("projects")} size="lg">
               <FolderOpen size={18} />
@@ -86,7 +102,7 @@ export default function Hero() {
               Contact Me
             </Button>
             <Button
-              variant="secondary"
+              variant="outline"
               size="lg"
               href={`mailto:${personalInfo.email}?subject=Resume Request`}
             >
@@ -98,15 +114,15 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 3.2 }}
-            className="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4 md:gap-10"
+            transition={{ duration: 0.6, delay: 3.8 }}
+            className="mt-20 grid grid-cols-2 gap-8 sm:grid-cols-4 md:gap-12"
           >
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-2xl font-bold text-white md:text-3xl">
+                <p className="text-3xl font-bold text-white md:text-4xl">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </p>
-                <p className="mt-1 text-xs text-text-muted md:text-sm">
+                <p className="mt-2 text-xs uppercase tracking-widest text-text-muted md:text-sm">
                   {stat.label}
                 </p>
               </div>
@@ -117,18 +133,18 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 3.5 }}
-          className="mt-12 flex justify-center"
+          transition={{ delay: 4.2 }}
+          className="mt-16 flex justify-center"
         >
           <motion.button
             onClick={() => scrollToSection("about")}
             animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-text-muted transition-colors hover:text-white"
+            transition={{ duration: 2.5, repeat: Infinity }}
+            className="interactive flex flex-col items-center gap-2 text-text-muted transition-colors hover:text-white"
             aria-label="Scroll to about"
           >
-            <span className="text-xs uppercase tracking-widest">Scroll</span>
-            <ArrowDown size={20} />
+            <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+            <ArrowDown size={18} />
           </motion.button>
         </motion.div>
       </div>

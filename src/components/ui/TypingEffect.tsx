@@ -41,7 +41,7 @@ export default function TypingEffect({ texts, className }: TypingEffectProps) {
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.6, repeat: Infinity }}
-        className="ml-0.5 inline-block h-[1em] w-[3px] translate-y-[2px] bg-accent"
+        className="ml-0.5 inline-block h-[1em] w-px translate-y-[2px] bg-white"
       />
     </span>
   );

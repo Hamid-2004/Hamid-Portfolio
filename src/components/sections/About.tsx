@@ -14,19 +14,19 @@ export default function About() {
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="relative flex justify-center"
         >
-          <div className="gradient-border relative">
-            <div className="flex h-72 w-72 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 md:h-80 md:w-80">
-              <div className="flex h-48 w-48 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-6xl font-bold text-white shadow-2xl shadow-primary/30 md:h-56 md:w-56 md:text-7xl">
+          <div className="premium-border relative rounded-[20px] p-1">
+            <div className="flex h-72 w-72 items-center justify-center rounded-[18px] bg-white/[0.02] md:h-80 md:w-80">
+              <div className="flex h-48 w-48 items-center justify-center rounded-2xl border border-white/20 bg-black text-6xl font-bold text-white md:h-56 md:w-56 md:text-7xl">
                 HA
               </div>
             </div>
           </div>
           <motion.div
             animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
+            transition={{ duration: 5, repeat: Infinity }}
             className="glass absolute -right-4 bottom-8 rounded-xl px-4 py-3 md:-right-8"
           >
             <p className="text-sm font-medium text-white">BS AI Student</p>
@@ -38,7 +38,7 @@ export default function About() {
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="space-y-6"
         >
           {aboutContent.paragraphs.map((paragraph, i) => (
@@ -50,7 +50,7 @@ export default function About() {
           <div className="grid gap-4 sm:grid-cols-2">
             <GlassCard hover={false} className="!p-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white">
                   <MapPin size={18} />
                 </div>
                 <div>
@@ -61,7 +61,7 @@ export default function About() {
             </GlassCard>
             <GlassCard hover={false} className="!p-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white">
                   <GraduationCap size={18} />
                 </div>
                 <div>

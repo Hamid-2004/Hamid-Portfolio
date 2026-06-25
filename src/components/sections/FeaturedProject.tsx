@@ -19,11 +19,11 @@ export default function FeaturedProject() {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
-        <GlassCard className="gradient-border overflow-hidden !p-0">
-          <div className="bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 p-8 md:p-10">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+        <GlassCard className="overflow-hidden !p-0">
+          <div className="border-b border-white/5 bg-white/[0.02] p-8 md:p-10">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-text-muted">
               <Shield size={14} />
               Featured Project
             </div>
@@ -39,7 +39,7 @@ export default function FeaturedProject() {
               {featuredProject.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-lg border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-text-muted"
+                  className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-1 text-xs font-medium text-text-muted"
                 >
                   {tech}
                 </span>
@@ -55,10 +55,10 @@ export default function FeaturedProject() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="rounded-xl border border-white/5 bg-white/[0.02] p-6"
+                className="rounded-[20px] border border-white/5 bg-white/[0.02] p-6"
               >
                 <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white">
                     {i === 0 ? <Users size={18} /> : <Shield size={18} />}
                   </div>
                   <h4 className="text-lg font-semibold text-white">{portal.name}</h4>
@@ -70,7 +70,7 @@ export default function FeaturedProject() {
                       key={feature}
                       className="flex items-center gap-2 text-sm text-text-muted"
                     >
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                      <span className="h-1 w-1 rounded-full bg-white/60" />
                       {feature}
                     </li>
                   ))}

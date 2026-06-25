@@ -18,7 +18,7 @@ export default function LoadingScreen() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
         >
           <motion.div
@@ -27,13 +27,13 @@ export default function LoadingScreen() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-2xl font-bold text-white shadow-lg shadow-primary/30">
+            <div className="flex h-20 w-20 items-center justify-center rounded-2xl border border-white/20 bg-black text-2xl font-bold text-white">
               HA
             </div>
             <motion.div
-              className="absolute -inset-2 rounded-2xl border-2 border-primary/30"
+              className="absolute -inset-2 rounded-2xl border border-white/10"
               animate={{ rotate: 360 }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             />
           </motion.div>
 
@@ -41,7 +41,7 @@ export default function LoadingScreen() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-6 text-lg font-medium text-white"
+            className="mt-6 text-lg font-medium tracking-wide text-white"
           >
             {personalInfo.name}
           </motion.p>
@@ -50,7 +50,7 @@ export default function LoadingScreen() {
             initial={{ width: 0 }}
             animate={{ width: 120 }}
             transition={{ duration: 1.8, ease: "easeInOut" }}
-            className="mt-4 h-1 rounded-full bg-gradient-to-r from-primary via-secondary to-accent"
+            className="mt-4 h-px bg-white/40"
           />
         </motion.div>
       )}

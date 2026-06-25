@@ -70,7 +70,7 @@ export default function Contact() {
       id="contact"
       title="Contact"
       subtitle="Let's work together"
-      className="bg-surface/30"
+      className="bg-surface/50"
     >
       <div className="grid gap-10 lg:grid-cols-2">
         <motion.div
@@ -89,12 +89,12 @@ export default function Contact() {
             <GlassCard hover={false} className="!p-4">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex min-w-0 items-start gap-3">
-                  <Mail size={18} className="mt-0.5 shrink-0 text-primary" />
+                  <Mail size={18} className="mt-0.5 shrink-0 text-white" />
                   <div className="min-w-0">
                     <p className="text-xs text-text-muted">Email</p>
                     <a
                       href={`mailto:${personalInfo.email}`}
-                      className="mt-1 block text-sm font-medium break-all text-white transition-colors hover:text-primary"
+                      className="mt-1 block text-sm font-medium break-all text-white transition-colors hover:text-white"
                     >
                       {personalInfo.email}
                     </a>
@@ -110,14 +110,14 @@ export default function Contact() {
                 <GlassCard key={platform.name} hover={false} className="!p-4">
                   <div className="flex flex-col gap-4">
                     <div className="flex items-start gap-3">
-                      <Icon size={18} className="mt-0.5 shrink-0 text-primary" />
+                      <Icon size={18} className="mt-0.5 shrink-0 text-white" />
                       <div className="min-w-0 flex-1">
                         <p className="text-xs text-text-muted">{platform.name}</p>
                         <a
                           href={platform.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-1 block text-sm font-medium break-all text-white transition-colors hover:text-primary"
+                          className="mt-1 block text-sm font-medium break-all text-white transition-colors hover:text-white"
                         >
                           {platform.url}
                         </a>
@@ -150,7 +150,7 @@ export default function Contact() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 text-text-muted transition-all hover:border-primary/50 hover:bg-primary/10 hover:text-white"
+                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 text-text-muted transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
                   aria-label={link.name}
                 >
                   <Icon size={18} />
@@ -181,7 +181,7 @@ export default function Contact() {
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 200 }}
                   >
-                    <CheckCircle size={48} className="text-green-400" />
+                    <CheckCircle size={48} className="text-white" />
                   </motion.div>
                   <h4 className="mt-4 text-xl font-semibold text-white">
                     Message Ready!
@@ -211,7 +211,7 @@ export default function Contact() {
                       onChange={(e) =>
                         setFormState((s) => ({ ...s, name: e.target.value }))
                       }
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-text-muted/50 outline-none transition-colors focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
+                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-text-muted/50 outline-none transition-colors focus:border-white/30 focus:ring-1 focus:ring-white/10"
                       placeholder="Your name"
                     />
                   </div>
@@ -227,7 +227,7 @@ export default function Contact() {
                       onChange={(e) =>
                         setFormState((s) => ({ ...s, email: e.target.value }))
                       }
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-text-muted/50 outline-none transition-colors focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
+                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-text-muted/50 outline-none transition-colors focus:border-white/30 focus:ring-1 focus:ring-white/10"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -243,7 +243,7 @@ export default function Contact() {
                       onChange={(e) =>
                         setFormState((s) => ({ ...s, message: e.target.value }))
                       }
-                      className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-text-muted/50 outline-none transition-colors focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
+                      className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-text-muted/50 outline-none transition-colors focus:border-white/30 focus:ring-1 focus:ring-white/10"
                       placeholder="Tell me about your project..."
                     />
                   </div>

@@ -29,7 +29,7 @@ export default function Experience() {
             >
               <GlassCard className="h-full">
                 <div className="mb-4 flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg shadow-primary/20">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white">
                     <Icon size={24} />
                   </div>
                   <h3 className="text-xl font-semibold text-white">{item.title}</h3>

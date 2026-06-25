@@ -13,7 +13,7 @@ export default function Projects() {
       id="projects"
       title="Other Projects"
       subtitle="More of my work"
-      className="bg-surface/30"
+      className="bg-surface/50"
     >
       <div className="grid gap-6 md:grid-cols-2">
         {otherProjects.map((project, i) => (
@@ -34,7 +34,7 @@ export default function Projects() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-md bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
+                    className="rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-0.5 text-xs font-medium text-text-muted"
                   >
                     {tag}
                   </span>
@@ -45,7 +45,7 @@ export default function Projects() {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-white"
+                className="interactive mt-6 inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-text-muted"
               >
                 <GitHubIcon size={16} />
                 View on GitHub

@@ -24,7 +24,7 @@ export default function CopyButton({ text, className, label }: CopyButtonProps) 
     <button
       onClick={handleCopy}
       className={cn(
-        "inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-text-muted transition-colors hover:bg-white/5 hover:text-white",
+        "interactive inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-text-muted transition-colors hover:bg-white/5 hover:text-white",
         className,
       )}
       aria-label={`Copy ${label || text}`}
@@ -36,7 +36,7 @@ export default function CopyButton({ text, className, label }: CopyButtonProps) 
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
-            className="flex items-center gap-1.5 text-green-400"
+            className="flex items-center gap-1.5 text-white"
           >
             <Check size={14} />
             Copied!

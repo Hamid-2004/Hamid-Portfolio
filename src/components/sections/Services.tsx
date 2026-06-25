@@ -43,9 +43,13 @@ export default function Services() {
               transition={{ duration: 0.4, delay: i * 0.05 }}
             >
               <GlassCard className="h-full">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary">
+                <motion.div
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, delay: i * 0.3 }}
+                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white"
+                >
                   <Icon size={22} />
-                </div>
+                </motion.div>
                 <h3 className="text-lg font-semibold text-white">{service.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-text-muted">
                   {service.description}
